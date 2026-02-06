@@ -36,13 +36,13 @@ Especially for unpublished data, any IACUC or ACUC permit numbers or collecting 
 
 Raw data can be found in:
 
-``` sh
+``` text
 Path to the raw data to where it is stored on hydra. Long term storage should be in hydra_NAS: /store/nzp_ccg/PROJECT_NAME/RawData
 ```
 
 Specific file info:
 
-``` sh
+``` text
 If there are additional distinctions that must be made about the raw data, put the path to the file name here
 ```
 
@@ -54,7 +54,7 @@ If you have multiple sequencing lanes and some did not work (for whatever reason
 
 When specifying metadata, make sure to include any information that is relevant to keeping the dataset viable and usable in the future assuming that there is no one to talk to about the data 30 years from now. What information would be needed for another naive researcher to pick up the data and use it effectively? It is imperative that the raw genomic data files can be associated with the sample metadata (e.g. sample1.fastq is from INDIVIDUAL of SPECIES from YEAR at LOCATION). The more associated information with each raw fastq file the better, but include the minimum amount of data such as sample ID, species, year, and location of the sampling for every fastq file. Note that it is also helpful to keep sample names consistent across EVERYWHERE they appear in all data files and tables so that associated metadata is more easily searchable.
 
-``` sh
+``` text
 Path to where the metadata files are on hydra
 /store/nzp_ccg/PROJECT_NAME/MetaData
 ```
@@ -81,7 +81,7 @@ Put the sequencing facility (e.g. University of Illinois Urbana-Champaign Core S
 
 Keep important processed data files such as alignments (bams), raw forms of vcf/bcf files (recommend variant and invariant vcfs), final/filtered vcfs, etc. This will vary dramatically between projects so add processed files as deemed fit per project.
 
-``` sh
+``` text
 Path to where the processed files are on hydra
 /store/nzp_ccg/PROJECT_NAME/ProcessedData
 ```
