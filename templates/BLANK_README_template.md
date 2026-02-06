@@ -34,7 +34,7 @@
 
 Raw data can be found in:
 
-``` sh
+``` text
 /store/nzp_ccg/PROJECT_NAME/RawData
 ```
 
@@ -42,7 +42,7 @@ Raw data can be found in:
 
 
 
-``` sh
+``` text
 /store/nzp_ccg/PROJECT_NAME/MetaData
 ```
 
@@ -67,7 +67,7 @@ Raw data can be found in:
 ### Processed Data
 
 
-``` sh
+``` text
 /store/nzp_ccg/PROJECT_NAME/ProcessedData
 ```
 
