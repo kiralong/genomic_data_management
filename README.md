@@ -129,7 +129,9 @@ For those at CCG, make sure when uploading your data to NCBI to add your data to
 
 ## Template README File
 
-Below is a template for a README file for unpublished genomic data. This README is meant to be kept in a project directory for genomic data. If there is additional information you deem necessary to keep with your data, add sections and labels as you see fit to the README file, this is only a suggested README to cover common information associated with genomic datasets. This README is quite detailed as it's purpose is to record all associated metadata for an *unpublished* project, and should be created at the start of a project and continuously updated up until publication. Your README will also aid in drafting a detailed methods section for your future publications, as most of the methods details should already be recorded or linked to in the README.
+Below is a template for a README file for unpublished genomic data. This README is meant to be kept in a project directory for genomic data. If there is additional information you deem necessary to keep with your data, add sections and labels as you see fit to the README file, this is only a suggested README to cover common information associated with genomic datasets. This README is quite detailed as it's purpose is to record all associated metadata for an *unpublished* project, and should be created at the start of a project and continuously updated up until (and just after) publication. Your README will also aid in drafting a detailed methods section for your future publications, as most of the methods details should already be recorded or linked to in the README.
+
+To download a separeate copy of the below README to put on hydra, go to the [`templates`](https://github.com/kiralong/genomic_data_management/tree/main/templates) directory in this repository. There is also a blank copy [(`BLANK_README_template.md`)](https://github.com/kiralong/genomic_data_management/blob/main/templates/BLANK_README_template.md) without the additional explainations for easy filling in.
 
 ## Project: PROJECT_NAME
 
@@ -143,8 +145,8 @@ Below is a template for a README file for unpublished genomic data. This README 
 
 ### People
 
-Name of person who generated data: <email@email.com> \
-Name of PI overseeing project: <email@si.edu> \
+Name of person who generated data: <email@email.com>\
+Name of PI overseeing project: <email@si.edu>\
 Name of any other relevant people who may need to be contacted about data: <email@email.com>
 
 ### Year Data was generated
@@ -222,9 +224,9 @@ If needed, describe the processed file type (e.g. bam files from alignment to re
 ## Associated databases and repositories
 
 If there are databases or repositories associated with the dataset, link them here. For example: \
-GitHub: link_to_GitHub_repo \
-NCBI: Put BioProject numbers and/or SRA accession numbers etc. \
-Figshare: link_to_Figshare \
+GitHub: link_to_GitHub_repo\
+NCBI: Put BioProject numbers and/or SRA accession numbers etc.\
+Figshare: link_to_Figshare\
 Dryad: link_to_dryad_dataset
 
 ## Notes
