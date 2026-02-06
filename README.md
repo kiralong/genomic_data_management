@@ -64,7 +64,7 @@ Example project directory structure:
 [longk@login02 GRSP]$ ls
 MetaData  ProcessedData  README.md  RawData
 ```
-Note that there are 3 direcotries (MetaData, ProcessedData, RawData) and one file (README.md) in the main project directory. You can organize your subdirectories more tailored to your project under this main directory, but this is our suggested project directory organization (i.e. you may have multiple subdirectories in `RawData` for each type of sequencing like whole-genome versus RADseq versus mitogenomes).
+Note that there are 3 directories (MetaData, ProcessedData, RawData) and one file (README.md) in the main project directory. You can organize your subdirectories more tailored to your project under this main directory, but this is our suggested project directory organization (i.e. you may have multiple subdirectories in `RawData` for each type of sequencing like whole-genome versus RADseq versus mitogenomes).
 
 ### Permissions
 
