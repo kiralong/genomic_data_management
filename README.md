@@ -29,7 +29,9 @@ And remember, data management is best done throughout the entire life cycle of a
 
 CCG members working with genomic data can request accounts on hydra and log in by following instructions on: <https://confluence.si.edu/display/HPC/Logging+into+Hydra>
 
-Follow the link under "requesting access" for "Non-SAO users" to the online form to request access. You will need supervisor approval so make sure you discuss your need to access hydra with your supervisor before requesting. Once approved and processed you will receive an email to your SI email with specific instuctions on how to log into your account. Note that hydra has a separate account and login than your SI Network account (and do NOT make your password the same for both accounts!). Also remember you need to change your password for hydra every 180 days (put this in your calendar). Please refer to the above link or contact Kira Long if you have additional questions on requesting an account on hydra or logging in.
+Follow the link under "requesting access" for "Non-SAO users" to the online form to request access. When filling out the form, make sure in the text box that asks how you intend to use Hydra that you mention that you need to be added to the `nzp_ccg` group. This will ensure that all of your files on hydra will be associated with our data group at CCG and then we can better share files and manage your data in the long-term.  Once approved and processed you will receive an email to your SI email with specific instuctions on how to log into your account.
+
+Note that hydra has a separate account and login than your SI Network account (and do NOT make your password the same for both accounts!). Also remember you need to change your password for hydra every 180 days (put this in your calendar). Please refer to the above link or contact Kira Long if you have additional questions on requesting an account on hydra or logging in. If you don't get a response to your hydra account request in about a week, let Kira know and she will investiagate on your behalf.
 
 ### Command-line Interface and Unix Commands
 
@@ -43,7 +45,7 @@ Throughout this guide, we will put specifc examples of the required commands, ho
 
 Project names must be informative and unique, but keep them short/brief. Do not put spaces or special characters in your project name. Ideally your project name will not just be the taxa you study as there are numerous projects that can occur over time on the same species. Similarly, for long-term storage, it is better to not just store data under the lead reseracher's name. Project names can include multiple identifiers such as `Species_MainAnalysis_Researcher`. For example, `GrasshopperSparrow_PopStructure_Fleischer` or `Mariana_Crow_PopGen_Structure` or `Amakihi_GRW4_Challenge_Transcriptome`.
 
-The project name is the primary identifier and should be the name of the directory that will contain your data in hydra long-term storage. The path to the hydra CCG long-term storage is: `/store/nzp_ccg`. Once you have obtained a hydra account, you can create your project directory within the long-term storage directory using the command `mkdir <DIRECTORY_NAME>`, so as an example `mkdir Mariana_Crow_PopGen_Structure` with create an empty directory named `Mariana_Crow_PopGen_Structure`.
+The project name is the primary identifier and should be the name of the directory that will contain your data in hydra long-term storage. The path to the hydra CCG long-term storage is: `/store/nzp_ccg`. Once you have obtained a hydra account, you can create your project directory within the long-term storage directory using the command `mkdir <DIRECTORY_NAME>`, so as an example `mkdir Mariana_Crow_PopGen_Structure` will create an empty directory named `Mariana_Crow_PopGen_Structure`.
 
 ### Add your project to the CCG Long-term Data Storage Database
 
@@ -57,9 +59,16 @@ In your project directory, you will need to create and mainatain the following d
 
 We recommend that as soon as you receive your sequencing data to store a copy of your raw `fastq` files in your project directory. Your path should generally look like the following: `/store/nzp_ccg/<YOUR_PROJECT>/RawData`
 
+Example project directory structure:
+```
+[longk@login02 GRSP]$ ls
+MetaData  ProcessedData  README.md  RawData
+```
+Note that there are 3 direcotries (MetaData, ProcessedData, RawData) and one file (README.md) in the main project directory. You can organize your subdirectories more tailored to your project under this main directory, but this is our suggested project directory organization (i.e. you may have multiple subdirectories in `RawData` for each type of sequencing like whole-genome versus RADseq versus mitogenomes).
+
 ### Permissions
 
-Once you have data in hydra store, make sure you check your data/directory permissions. Briefly, permissions are in two parts: who has access and what can they do. First, who can access the files is split into 3 categories: the main user (you), the group (in our case CCG is our group, notated as `nzp_ccg`), and then all other users. The three main categories of what can be done to the files is read, write, and execute. For further general information on permissions in a unix/linux system, see: <https://www.tutorialspoint.com/unix/unix-file-permission.htm>.
+Once you have data in hydra store, make sure you check your data/directory permissions. Briefly, permissions are in two parts: who has access and what can they do. First, who can access the files is split into 3 categories: the main user (you), the group (in our case CCG is our group, notated as `nzp_ccg`. If you are unsure if you are in the `nzp_ccg` group, run the command `groups <YOUR_USERNAME>` and the resulting list should contain `nzp_ccg`. If you don't see `nzp_ccg` listed, contact Kira Long and she will get you added), and then all other users. The three main categories of what can be done to the files is read (r), write (w), and execute (x). For further general information on permissions in a unix/linux system, see: <https://www.tutorialspoint.com/unix/unix-file-permission.htm>.
 
 We need to ensure that all data uploaded to hydra from CCG in either the CCG `scratch` or `store` directories is correctly assigned to the `nzp_ccg` group and that file and directories are read/write/executable. You can check your file permissions using the command `ls -l` and look at the first column the command displays in your terminal.
 
@@ -71,6 +80,8 @@ drwxrwxr-x 9 longk nzp_ccg   10 Dec 16 16:44 ProcessedData
 -rw-rwxr-x 1 longk nzp_ccg 2941 Jan 21 14:46 README.md
 drwxrwxr-x 2 longk nzp_ccg   81 Jan 21 14:44 RawData
 ```
+
+Here, we can see the permissions are written as `-rw-rwxr-x` or `drwxrwxr-x`. Directories have a `d` in the front of the permissions column, while files have `-`. Next, for the `README.md` file we have `-rw-rwxr-x` which, we read in groups of 3s after the directory designation. So to break this down, we have `-` designating this is a file and not a directory, `rw-` meaning "you" (the main user/creator) have read and write permissions but not excecute permissions, `rwx` the group has read write and execute permissions, and `r-x` means that all other users have read and execute permission. 
 
 You can change the group permissions to `nzp_ccg` for all permissions using
 
