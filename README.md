@@ -7,13 +7,14 @@ A beginners guide to genomic data management
 2. [Getting Started](#getting-started)
 3. [Create a Project](#create-a-project)
 4. [File Structure on Hydra](#file-structure-in-hydra-storage)
-5. [Sample Names](#sample-names)
-6. [A Project README File](#a-project-readme-file)
-7. [The Master Metadata File](#the-master-metadata-file)
-8. [Processed Data Files](#processed-data-files)
-9. [Uploading your data to NCBI](#uploading-your-data-to-ncbi)
-10. [Template README File](#template-readme-file)
-11. [Example README File](#example-readme-file)
+5. [Checking File integrity](#checking-file-integrity)
+6. [Sample Names](#sample-names)
+7. [A Project README File](#a-project-readme-file)
+8. [The Master Metadata File](#the-master-metadata-file)
+9. [Processed Data Files](#processed-data-files)
+10. [Uploading your data to NCBI](#uploading-your-data-to-ncbi)
+11. [Template README File](#template-readme-file)
+12. [Example README File](#example-readme-file)
 
 ## Introduction
 
@@ -98,6 +99,23 @@ You can also set the permissions for "other" users to read-only so they can see 
 # Change permissions for other users to read and execute but NOT write
 chmod -R o=rx <your data directory>
 ```
+
+## Checking File Integrity
+
+Your sequencing run is done, the sequencing facility has emailed you and told you to validate your data and file integrity... now what?
+
+Sequencing facilities will give you your sequencing data as `fastq` files, and each `fastq` will have an associated `md5` file. This `md5` file is a text file that contains the `fastq` file name, and a long string of letters and numbers. This `md5` is a unique code calculated on your file that was generated at the sequencing facility. Once you copy the data to your own computer or hpc, you need to check that this `md5` is still the same. If the file is corrupted while transferring, the `md5` will be different from the text file the sequencing facility gave you. Luckily the program `md5sum` will check your `md5` text files, calculate the `md5` on your `fastq` files, and then compare the two to tell you if your file is exactly the same after transferring. It is very important to check your sequencing files every time you copy or transfer the data to ensure the data isn't corrupted. Within the directory that contains all your raw `fastq` and `md5` files, run `md5sum -c *md5`. This will run the `md5sum -c` command on all files ending in `.md5` in the directory.
+
+The output will look like this:
+```text
+FL-04327_S142_R1_001.fastq.gz: OK
+FL-04327_S142_R2_001.fastq.gz: OK
+FL-04328_S135_R1_001.fastq.gz: OK
+FL-04328_S135_R2_001.fastq.gz: OK
+...
+```
+
+If the line ends ends with `OK` then the `md5` matches and the file is the exact same as it was before it was transferred. If the line ends with `FAILED`, then your file was likely corrupted when copying it and you'll need to redownload that file. Always keep the original `md5` text files with your raw data, so that the file integrity can always be checked in the future.
 
 ## Sample Names
 
