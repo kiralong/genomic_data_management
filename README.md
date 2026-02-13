@@ -108,6 +108,7 @@ Sequencing facilities will give you your sequencing data as `fastq` files, and e
 
 The output will look like this:
 ```text
+[longk@login02 RawData]$ md5sum -c *md5
 FL-04327_S142_R1_001.fastq.gz: OK
 FL-04327_S142_R2_001.fastq.gz: OK
 FL-04328_S135_R1_001.fastq.gz: OK
