@@ -7,14 +7,15 @@ A beginners guide to genomic data management
 2. [Getting Started](#getting-started)
 3. [Create a Project](#create-a-project)
 4. [File Structure on Hydra](#file-structure-in-hydra-storage)
-5. [Checking File integrity](#checking-file-integrity)
-6. [Sample Names](#sample-names)
-7. [A Project README File](#a-project-readme-file)
-8. [The Master Metadata File](#the-master-metadata-file)
-9. [Processed Data Files](#processed-data-files)
-10. [Uploading your data to NCBI](#uploading-your-data-to-ncbi)
-11. [Template README File](#template-readme-file)
-12. [Example README File](#example-readme-file)
+5. [Permissions](#permissions)
+6. [Checking File integrity](#checking-file-integrity)
+7. [Sample Names](#sample-names)
+8. [A Project README File](#a-project-readme-file)
+9. [The Master Metadata File](#the-master-metadata-file)
+10. [Processed Data Files](#processed-data-files)
+11. [Uploading your data to NCBI](#uploading-your-data-to-ncbi)
+12. [Template README File](#template-readme-file)
+13. [Example README File](#example-readme-file)
 
 ## Introduction
 
@@ -67,7 +68,7 @@ MetaData  ProcessedData  README.md  RawData
 ```
 Note that there are 3 directories (MetaData, ProcessedData, RawData) and one file (README.md) in the main project directory. You can organize your subdirectories more tailored to your project under this main directory, but this is our suggested project directory organization (i.e. you may have multiple subdirectories in `RawData` for each type of sequencing like whole-genome versus RADseq versus mitogenomes).
 
-### Permissions
+## Permissions
 
 Once you have data in hydra store, make sure you check your data/directory permissions. Briefly, permissions are in two parts: who has access and what can they do. First, who can access the files is split into 3 categories: the main user (you), the group (in our case CCG is our group, notated as `nzp_ccg`. If you are unsure if you are in the `nzp_ccg` group, run the command `groups <YOUR_USERNAME>` and the resulting list should contain `nzp_ccg`. If you don't see `nzp_ccg` listed, contact Kira Long and she will get you added), and then all other users. The three main categories of what can be done to the files is read (r), write (w), and execute (x). For further general information on permissions in a unix/linux system, see: <https://www.tutorialspoint.com/unix/unix-file-permission.htm>.
 
